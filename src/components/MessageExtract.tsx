@@ -41,6 +41,7 @@ export const MessageExtract: React.FC = () => {
       progress: 0,
       message: 'Extracting message...'
     });
+    setExtractResult(null); // Clear previous results when starting a new extraction
 
     try {
       const result = await SteganographyUtil.extractMessage(
@@ -73,10 +74,12 @@ export const MessageExtract: React.FC = () => {
       setProcessing({
         isProcessing: false,
         progress: 0,
-        message: ''
+        message: (error as Error).message // Display the error message in the UI
       });
-      setExtractResult(null);
-      alert((error as Error).message);
+      setExtractResult(null); // Ensure no previous successful result is shown
+      setTimeout(() => {
+        setProcessing(prev => ({ ...prev, message: '' })); // Clear message after a delay
+      }, 3000);
     }
   };
 
@@ -108,6 +111,7 @@ export const MessageExtract: React.FC = () => {
         onImageRemove={() => {
           setImage(null);
           setExtractResult(null);
+          setProcessing({ isProcessing: false, progress: 0, message: '' }); // Reset processing state
         }}
         title="Upload Image for Extraction"
         description="Choose an image that may contain a hidden message"
@@ -160,12 +164,12 @@ export const MessageExtract: React.FC = () => {
               <div className={`border rounded-lg p-4 ${
                 extractResult?.success 
                   ? 'bg-green-50 border-green-200' 
-                  : 'bg-amber-50 border-amber-200'
+                  : 'bg-red-50 border-red-200' // Use red for error messages
               }`}>
                 <p className={`text-sm ${
                   extractResult?.success 
                     ? 'text-green-800' 
-                    : 'text-amber-800'
+                    : 'text-red-800' // Use red for error messages
                 }`}>
                   {processing.message}
                 </p>
