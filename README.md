@@ -182,7 +182,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Built with [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/)
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
 - Icons from [Lucide React](https://lucide.dev/)
-- Deployed on [Netlify](https://www.netlify.com/)
+- Deployed on [Vercel](https://www.vercel.com/)
 
 ## 📞 Support
 
