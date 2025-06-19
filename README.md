@@ -16,7 +16,7 @@ CryptiPix is a modern, secure image steganography tool that allows you to hide s
 
 ## 🚀 Live Demo
 
-Visit the live application: [https://starlit-sorbet-7549c0.netlify.app](https://starlit-sorbet-7549c0.netlify.app)
+Visit the live application: [https://cryptipix.vercel.app]([https://cryptipix.vercel.app)
 
 ## 🛠️ Technology Stack
 
